@@ -10,7 +10,7 @@
 			{{ note.category }}
 		</p>
 		<h3 class="NoteTitle my-2">
-			{{ note.title }}
+			{{ slicedNoteTitle }}
 		</h3>
 		<div class="d-flex justify-content-end mt-3">
 			<button type="button" class="ReadBtn BgWarning px-2 py-1">Read</button>
@@ -37,6 +37,22 @@ export default {
 		divider: {
 			type: Boolean,
 			default: false
+		}
+	},
+
+	data(){
+		return {
+			visibleCharCount: 70
+		}
+	},
+
+	computed: {
+		slicedNoteTitle(){
+			if(this.note.title.length > this.visibleCharCount){
+				return this.note.title.slice(0, this.visibleCharCount - 3) + "...";
+			}
+
+			return this.note.title;
 		}
 	}
 }

@@ -6,7 +6,7 @@
 		width: 200%;
 
 		.NoteList,
-		.NoteContent {
+		.NotePreviewBoard {
 			flex: 1;
 			height: 100vh;
 			overflow-y: hidden;
@@ -16,7 +16,9 @@
 			position: relative;
 		}
 
-		.NoteContent {}
+		.NotePreviewBoard {
+			overflow-y: auto;
+		}
 
 		.Main {
 			margin-top: $note-list-header-offset;

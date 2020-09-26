@@ -2,7 +2,7 @@
 	<div class="NoteListHeader BgDarkPrimary py-3 px-2 px-md-3 pb-md-2">
 		<div class="d-flex justify-content-between pr-5 pr-md-0 text-white">
 			<span>General</span>
-			<span>14 notes</span>
+			<button class="btn btn-sm btn-light d-inline" @click="$router.push({name: 'create'})">Add note</button>
 		</div>
 		<input 
 			type="text" 

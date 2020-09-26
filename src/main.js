@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import store from "@/store/index.js"
-import router from "@/router"
+import router from '@/router'
 import plugins from './plugins'
 import App from './views/App.vue'
+import store from '@/store/index.js'
 
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'

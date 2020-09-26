@@ -4,17 +4,21 @@
 			<div class="NoteList mx-md-2">
 				<NoteListHeader @filter="filter = $event"/>
 				<div class="Main bg-white">
-					<NoteCard 
-						:note="{
-							title:'Some owesome note title',
-							category:'school'
-						}"
-						:shadow="false"
-						divider
-					/>
+					<template v-if="emptySearchResults">
+						<div class="text-center p-3">No results found for <strong>{{ filter }}</strong></div>
+					</template>
+					<template>
+						<NoteCard 
+							v-for="(note, index) in searchResults"
+							:key="note.title + index"
+							:note="note"
+							:shadow="false"
+							divider
+						/>
+					</template>
 				</div>
 			</div>
-			<div class="NoteContent">Read View</div>
+			<NotePreviewBoard/>
 		</div>
 	</div>
 </template>
@@ -22,12 +26,14 @@
 <script>
 import { mapState } from "vuex";
 import NoteCard from "@/components/cards/NoteCard.vue";
-import NoteListHeader from "@/components/note-list/NoteListHeader.vue";
+import NoteListHeader from "@/components/note/NoteListHeader.vue";
+import NotePreviewBoard from "@/components/note/NotePreviewBoard.vue";
 
 export default {
 	components: {
 		NoteCard,
 		NoteListHeader,
+		NotePreviewBoard
 	},
 
 	data(){
@@ -39,9 +45,17 @@ export default {
 	computed: {
 		...mapState(['notes']),
 
-		filteredNotes(){
+		searchResults(){
 			let regExp = new RegExp(`${this.filter}`, 'i')
-			// return this.notes.filter(note => regExp.test(note.title) || regExp.test(note.content));
+			return this.notes.filter(note => regExp.test(note.title) || regExp.test(note.content));
+		},
+
+		searchResultsCount(){
+			return this.searchResults.length;
+		},
+
+		emptySearchResults(){
+			return this.searchResults.length === 0;
 		}
 	}
 
