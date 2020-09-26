@@ -1,0 +1,28 @@
+.NoteCard {
+	border-radius: 5px;
+	
+	&.shadow {
+		box-shadow: 4px 4px 8px darken($app-light, 15%);
+	}
+
+	&.divider {
+		border-bottom: 1px solid darken($app-light, 10%);
+		border-radius: 0 !important;
+	}
+
+	.CategoryName {
+		color: darken($app-light, 50%);
+		text-transform: capitalize;
+
+		.CategoryColorIndicator {
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+		}
+	}
+
+	.NoteTitle {
+		font-size: $font-size + 4px;
+		color: darken($app-light, 70%);
+	}
+}

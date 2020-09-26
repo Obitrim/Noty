@@ -1,0 +1,33 @@
+.AddCategoryBtn {
+	border: none;
+	background-color: transparent;
+	font-size: $font-size + 8px;
+
+	&:hover {
+		background-color: $app-light;
+		cursor: pointer;
+	}
+}
+
+.SidebarToggleBtn {
+	position: fixed;
+	top: 0.5rem;
+	right: 0.5rem;
+
+	font-size: $font-size + 4px;
+	font-weight: bold;
+	border: none;
+	z-index: 999;
+}
+
+.ReadBtn {
+	border: none;
+	border-radius: 5px;
+	background-color: transparent;
+	border: 1px solid $warning;
+
+	&:hover {
+		background-color: #ffffff !important;
+		color: $warning;
+	}
+}

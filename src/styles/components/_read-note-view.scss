@@ -1,0 +1,39 @@
+.ReadNoteViewWrapper {
+	overflow-x: hidden;
+	width: 100%;
+
+	.ReadNoteView {
+		width: 200%;
+
+		.NoteList,
+		.NoteContent {
+			flex: 1;
+			height: 100vh;
+			overflow-y: hidden;
+		}
+
+		.NoteList {
+			position: relative;
+		}
+
+		.NoteContent {}
+
+		.Main {
+			margin-top: $note-list-header-offset;
+			height: calc(100vh - 130px);
+			overflow-y: auto;
+		}
+	}
+}
+
+@media(min-width: 768px) {
+	.ReadNoteViewWrapper {
+		.ReadNoteView {
+			width: 100%;
+
+			.NoteList {
+				max-width: 330px;
+			}
+		}
+	}
+}

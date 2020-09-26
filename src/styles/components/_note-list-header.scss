@@ -1,0 +1,16 @@
+.NoteListHeader {
+	height: $note-list-header-h;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+	.SearchInput {
+		position: relative;
+		z-index: 2;
+	}
+}
+
+@media (min-width: 992px){
+	
+}

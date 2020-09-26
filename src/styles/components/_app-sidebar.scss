@@ -1,0 +1,49 @@
+.AppSidebar {
+	width: 100vw;
+	max-width: 600px;
+	height: 100vh;
+	overflow-y: auto;
+
+	position: fixed;
+	top: 0;
+	left: -100%;
+
+	transition: left 0.25s ease-in-out;
+	// box-shadow: 0 4px 10px darken($app-light, 15%);
+	z-index: 999;
+
+	&.Show {
+		left: 0;
+	}
+
+	.Header {
+		font-size: $font-size * 2;
+	}
+
+	.Heading {
+		font-size: $font-size + 4px;
+	}
+
+	.RouterLink {
+		border-left: 5px solid transparent;
+		box-sizing: border-box;
+		color: $app-primary;
+
+		&:hover {
+			background-color: lighten($app-primary, 40%);
+			text-decoration: none;
+		}
+	}
+
+	.ActiveClass {
+		background-color: lighten($app-primary, 45%);
+		border-color: $app-primary;
+	}
+}
+
+@media(min-width: 992px){
+	.AppSidebar {
+		position: static;
+		max-width: 270px;
+	}
+}
