@@ -1,4 +1,4 @@
-# vue-app
+## Noty
 
 ## Project setup
 ```
