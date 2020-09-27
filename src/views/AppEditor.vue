@@ -1,28 +1,20 @@
 <template>
-  <div id="editor" class="w-100 h-100 bg-white"></div>
+  <div class="AppEditor">
+    <vue-editor class="mx-2" v-model="noteContent"/>
+    <button type="button" class="saveBtn btn mx-2 my-4 ">Save</button>
+  </div>
 </template>
 
 <script>
-import Link from '@editorjs/link';
-import List from '@editorjs/list';
-import Header from '@editorjs/header';
-import Editor from '@editorjs/editorjs';
-import SimpleImage from '@editorjs/simple-image';
+import { VueEditor } from 'vue2-editor';
 
 export default {
-  mounted(){
-    new Editor({
-      holder: "editor",
-      tools: {
-        link: Link,
-        list: List,
-        header: { 
-          class: Header,
-          inlineToolbar: ['link']
-        },
-        image: SimpleImage
-      }
-    });
+  components: { VueEditor },
+
+  data(){
+    return {
+      noteContent: ""
+    }
   }
 }
 </script>
