@@ -1,0 +1,32 @@
+.AppEditor {
+	position: relative;
+
+	.ql-toolbar {
+		background-color: darken($app-primary, 10%);
+
+		.ql-stroke {
+			color: white !important;
+			
+			stroke: white !important;
+		}
+
+		.ql-fill {
+			fill: white !important;
+		}
+
+		.ql-picker-label {
+			color: white !important;
+		}
+	}
+
+	.ql-editor {
+		background-color: lighten($app-light, 100%) !important;
+	}
+
+	.saveBtn {
+		background-color: $app-primary;
+		color: $app-light;
+		border-radius: 5px;
+		box-shadow: 5px 5px 15px darken($app-light, 10%);
+	}
+}
