@@ -1,5 +1,5 @@
 .AppEditor {
-	position: relative;
+	flex-direction: column;
 
 	.ql-toolbar {
 		background-color: darken($app-primary, 10%);
@@ -21,6 +21,7 @@
 
 	.ql-editor {
 		background-color: lighten($app-light, 100%) !important;
+		min-height: 50vh;
 	}
 
 	.saveBtn {
