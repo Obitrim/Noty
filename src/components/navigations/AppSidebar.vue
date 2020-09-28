@@ -10,41 +10,21 @@
 				Recents
 			</router-link>
 			<div class="Categories mt-3">
-				<h2 class="Heading d-flex justify-content-between align-items-center px-3">
+				<h2 class="Heading d-flex justify-content-between align-items-center pl-3 pr-2">
 					Categories
 					<button class="AddCategoryBtn">&plus;</button>
 				</h2>
 				<router-link 
-					to="/read/business" 
+					:to="`/read/${category}`" 
 					class="d-flex align-items-center justify-content-between py-2 px-3 RouterLink"
 					exact-active-class="ActiveClass"
+					v-for="(category, index) in noteCategories"
+					:key="category + index"
 					>
-					Business
-					<span class="BgPrimary text-white d-inline-block badge badge-pill p-1">12</span>
-				</router-link>
-				<router-link 
-					to="/read/school" 
-					class="d-flex align-items-center justify-content-between py-2 px-3 RouterLink"
-					exact-active-class="ActiveClass"
-					>
-					School
-					<span class="BgPrimary text-white d-inline-block badge badge-pill p-1">122</span>
-				</router-link>
-				<router-link 
-					to="/read/work" 
-					class="d-flex align-items-center justify-content-between py-2 px-3 RouterLink"
-					exact-active-class="ActiveClass"
-					>
-					Work
-					<span class="BgPrimary text-white d-inline-block badge badge-pill p-1">142</span>
-				</router-link>
-				<router-link 
-					to="/read/csm" 
-					class="d-flex align-items-center justify-content-between py-2 px-3 RouterLink"
-					exact-active-class="ActiveClass"
-					>
-					CSM 387
-					<span class="BgPrimary text-white d-inline-block badge badge-pill py-1 px-2">0</span>
+					{{ category }}
+					<span class="BgPrimary text-white d-inline-block badge badge-pill p-1">
+						{{ getNotesCountInCategory(category) }}
+					</span>
 				</router-link>
 			</div>
 		</div>
@@ -56,7 +36,7 @@ import { mapState } from 'vuex';
 
 export default {
 	computed: {
-		...mapState(['navOpen'])
+		...mapState(['navOpen', 'noteCategories', 'categorizedNotes'])
 	},
 
 	watch: {
@@ -68,6 +48,11 @@ export default {
 	methods: {
 		closeSidebar(){
 			this.$store.commit("showSidebar", false);
+		},
+
+		getNotesCountInCategory(category){
+			category = category.toLowerCase();
+			return this.categorizedNotes[category]?.length;
 		}
 	}
 }
