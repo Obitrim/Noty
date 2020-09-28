@@ -1,6 +1,6 @@
 <template>
 	<div class="ReadNoteViewWrapper">
-		<div class="ReadNoteView d-flex">
+		<div class="ReadNoteView d-flex" :class="{ 'ReadNoteView--ShiftLeft': readMode }">
 			<div class="NoteList mx-md-2">
 				<NoteListHeader @filter="filter = $event"/>
 				<div class="Main bg-white">
@@ -13,12 +13,13 @@
 							:key="note.title + index"
 							:note="note"
 							:shadow="false"
+							@read="readMode = true"
 							divider
 						/>
 					</template>
 				</div>
 			</div>
-			<NotePreviewBoard/>
+			<NotePreviewBoard @goToNotes="readMode = false"/>
 		</div>
 	</div>
 </template>
@@ -38,17 +39,21 @@ export default {
 
 	data(){
 		return {
-			filter: ""
+			filter: "",
+			readMode: false
 		}
 	},
 
 	computed: {
-		...mapState(['notes']),
-
-		searchResults(){
-			let regExp = new RegExp(`${this.filter}`, 'i')
-			return this.notes.filter(note => regExp.test(note.title) || regExp.test(note.content));
-		},
+		...mapState({
+			searchResults(state){
+				let regExp = new RegExp(`${this.filter}`, 'i');
+				let notesInCategoryOfFocus = state.categorizedNotes[state.focusedCategory];
+				return notesInCategoryOfFocus.filter(note => {
+					return regExp.test(note.title) || regExp.test(note.content);
+				});
+			}
+		}),
 
 		searchResultsCount(){
 			return this.searchResults.length;
