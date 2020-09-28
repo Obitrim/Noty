@@ -11,7 +11,22 @@ const store = new Vuex.Store({
 	mutations: {
 		showSidebar: (state, show=true) => {
 			state.navOpen = show;
+		},
+
+		readNote: (state, note) => {
+			state.previewedNote = note;
+		},
+
+		setFocusedCategory: (state, category) => {
+			state.focusedCategory = category.toLowerCase();
 		}
+
+		// editNote: (state, note) => {
+		// 	state.newNote = {
+		// 		content: note.content,
+		// 		editing: true
+		// 	}
+		// }
 	},
 
 	actions: {}
