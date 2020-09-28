@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import swal from 'sweetalert';
 import state from "./state.js";
 
 Vue.use(Vuex);
@@ -19,6 +20,14 @@ const store = new Vuex.Store({
 
 		setFocusedCategory: (state, category) => {
 			state.focusedCategory = category.toLowerCase();
+		},
+
+		addNewCategory: (state, categoryName) => {
+
+			categoryName = categoryName.toLowerCase();
+			state.categorizedNotes[categoryName] = [];
+			state.noteCategories.push(categoryName);
+			swal('Successful', 'You Successfully added a new category of notes', 'success');
 		}
 
 		// editNote: (state, note) => {
