@@ -44,6 +44,12 @@ export default {
 		}
 	},
 
+	watch: {
+		'$route': function(){
+			this.readMode = false;
+		}
+	},
+
 	computed: {
 		...mapState({
 			searchResults(state){

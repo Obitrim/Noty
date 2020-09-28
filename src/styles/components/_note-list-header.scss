@@ -5,6 +5,10 @@
 	left: 0;
 	width: 100%;
 
+	.CategoryName {
+		text-transform: capitalize;
+	}
+
 	.SearchInput {
 		position: relative;
 		z-index: 2;

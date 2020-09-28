@@ -31,3 +31,10 @@
 		color: $warning;
 	}
 }
+
+.saveBtn {
+	background-color: $app-primary !important;
+	color: $app-light !important;
+	border-radius: 5px;
+	box-shadow: 5px 5px 15px darken($app-light, 10%);
+}

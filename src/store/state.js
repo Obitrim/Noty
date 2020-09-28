@@ -2,6 +2,7 @@ export default {
 	navOpen: false,
 
 	categorizedNotes: {
+		general: [],
 		business: [{
 				title: 'Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Laudantium minima iusto, consequuntur expedita quaerat illo velit totam',
 				category: 'business',
@@ -56,11 +57,13 @@ export default {
 		}]
 	},
 	newNote: {
+		title: "",
 		content: "",
+		category: "",
 		editing: false
 	},
 	recents: [],
 	previewedNote: {},
-	focusedCategory: '',
-	noteCategories: ['business', 'work', 'school'],
+	focusedCategory: 'general',
+	noteCategories: ['general', 'business', 'work', 'school'],
 }
