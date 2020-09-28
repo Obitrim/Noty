@@ -9,7 +9,6 @@
 	left: -100%;
 
 	transition: left 0.25s ease-in-out;
-	// box-shadow: 0 4px 10px darken($app-light, 15%);
 	z-index: 999;
 
 	&.Show {
@@ -28,6 +27,7 @@
 		border-left: 5px solid transparent;
 		box-sizing: border-box;
 		color: $app-primary;
+		text-transform: capitalize;
 
 		&:hover {
 			background-color: lighten($app-primary, 40%);
