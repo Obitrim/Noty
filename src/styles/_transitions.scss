@@ -1,6 +1,6 @@
 .fade-enter-active,
 .fade-leave-active {
-	animation: fade-in 0.25s ease-out;
+	animation: fade-in 0.25s ease-in-out;
 }
 
 .fade-leave-active {
